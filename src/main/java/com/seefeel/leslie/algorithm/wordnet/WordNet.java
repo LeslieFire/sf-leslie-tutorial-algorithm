@@ -87,7 +87,7 @@ public class WordNet {
             String line ;
             while((line = synsetsReader.readLine()) != null){
                 String[] cell = line.split(DELIMITER_1st);
-                if (cell.length != 3) continue;
+                if (cell.length < 2) continue;
 
                 Integer synId = Integer.valueOf(cell[0]);
                 String syns = cell[1];
