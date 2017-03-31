@@ -6,7 +6,9 @@ import edu.princeton.cs.algs4.Digraph;
 
 import java.io.BufferedReader;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * ${DESCRIPTION}
@@ -22,7 +24,7 @@ public class WordNet {
     private Map<Integer, String> id2synsets;
     private Digraph digraph;
     private SAP sap;
-    private Map<String, Integer> postTable;
+    private Map<String, Set<Integer>> postTable;
 
 
     // constructor takes the name of the two input files
@@ -93,7 +95,10 @@ public class WordNet {
 
                 String[] syn = syns.split(DELIMITER_2nd);
                 for (String s : syn) {
-                    postTable.putIfAbsent(s, synId);   // 倒排表，方便查找
+                    if (!postTable.containsKey(s)){
+                        postTable.put(s, new HashSet<>());
+                    }
+                    postTable.get(s).add(synId);   // 倒排表，方便查找
                 }
             }
 
