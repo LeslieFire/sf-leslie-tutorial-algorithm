@@ -48,7 +48,8 @@ public class Percolation {
 
         if (x < n) {
             uf.union(x, virtualTop);
-        } else if (x >= size - n) {
+        }
+        if (x >= size - n) {
             uf.union(x, virtualBottom);
         }
 
