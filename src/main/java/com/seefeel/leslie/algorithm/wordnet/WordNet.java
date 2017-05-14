@@ -146,8 +146,8 @@ public class WordNet {
     // do unit testing of this class
     public static void main(String[] args){
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        String synsetPath = classLoader.getResource("synsets.txt").getFile();
-        String hypernymsPath = classLoader.getResource("hypernyms.txt").getFile();
+        String synsetPath = classLoader.getResource("wordnet/synsets.txt").getFile();
+        String hypernymsPath = classLoader.getResource("wordnet/hypernyms.txt").getFile();
 
         WordNet wordNet = new WordNet(synsetPath, hypernymsPath);
         System.out.println(wordNet);
