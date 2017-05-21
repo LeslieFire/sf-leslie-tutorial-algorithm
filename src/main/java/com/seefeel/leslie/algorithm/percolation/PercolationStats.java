@@ -2,6 +2,7 @@ package com.seefeel.leslie.algorithm.percolation;
 
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
+import edu.princeton.cs.algs4.Stopwatch;
 
 /**
  * ${DESCRIPTION}
@@ -64,14 +65,15 @@ public class PercolationStats {
         } else {
             int n = Integer.parseInt(args[0]);
             int trials = Integer.parseInt(args[1]);
-            long start = System.currentTimeMillis();
+
+            Stopwatch stopwatch = new Stopwatch();
             PercolationStats stats = new PercolationStats(n, trials);
-            long timeEsp = System.currentTimeMillis() - start;
+            double timeEsp = stopwatch.elapsedTime();
 
             System.out.println("mean                    = " + stats.mean());
             System.out.println("stddev                  = " + stats.stddev());
             System.out.println("95% confidence interval = [" + stats.confidenceLo() +", "+ stats.confidenceHi() +"]");
-            System.out.println("cost: " + (double) timeEsp / 1000 + "s.");
+            System.out.println("cost: " +  timeEsp + "s.");
         }
     }
 }

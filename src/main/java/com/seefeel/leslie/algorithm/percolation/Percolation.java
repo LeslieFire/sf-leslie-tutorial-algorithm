@@ -46,11 +46,8 @@ public class Percolation {
         site[x] = true;
         nOpen++;
 
-        if (x < n) {
+        if (row == 1) {
             uf.union(x, virtualTop);
-        }
-        if (x >= size - n) {
-            uf.union(x, virtualBottom);
         }
 
         // union 4 neiborhod x
@@ -64,6 +61,11 @@ public class Percolation {
             } catch (IndexOutOfBoundsException e) {
                 continue;
             }
+        }
+
+        if (row == n) {
+            // TODO: optimal
+            uf.union(x, virtualBottom);
         }
     }
 
